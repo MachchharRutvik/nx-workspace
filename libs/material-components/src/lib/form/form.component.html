@@ -1,0 +1,39 @@
+<div class="container" >
+    <h1>{{title}}</h1>
+    <form action="" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName"   id="firstName" formControlName="firstName">
+            <small *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="text-danger" >First name is required</small>
+        </div>
+        <div class="container my-2">
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName"   id="lastName" formControlName="lastName">
+            
+            <small *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="text-danger" >Last name is required</small>
+        </div>
+        <div class="container my-2">
+            <label for="email">Email:</label>
+            <input type="text" name="email"   id="email" formControlName="email">
+            <span *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                <small *ngIf="userForm.get('email')?.errors?.['required']" class="text-danger" >email is required</small>
+                <small *ngIf="userForm.get('email')?.errors?.['email']"  class="text-danger" >Invalid email</small>
+            </span>
+        </div>
+        <div class="container my-2">
+            <label for="mobile">Mobile:</label>
+            <input type="text" name="mobile"   id="mobile" formControlName="mobile">
+            <span *ngIf="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+                <small *ngIf="userForm.get('mobile')?.errors?.['required']" class="text-danger" >mobile is required</small>
+                <small *ngIf="userForm.get('mobile')?.errors?.['pattern']"  class="text-danger" >Invalid Mobile</small>
+                <!-- <small *ngIf="userForm.get('mobile')?.errors?.['min']"  class="text-danger" >Min length 10</small> -->
+            </span>
+        </div>
+        <div>
+            <button type="button" class="btn btn-secondary my-2 mx-2" (click)="onSubmit()" [disabled] = "userForm.invalid">{{button}}</button>
+            <button type="button " class="btn btn-secondary my-2 mx-2" (click)="onCancel()">Cancel</button>
+            
+        </div>
+    </form>
+
+</div>

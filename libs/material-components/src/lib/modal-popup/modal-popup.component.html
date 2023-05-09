@@ -1,0 +1,13 @@
+<!-- <button (click)="openModal(myModal)">Open modal</button> -->
+<ng-template #myModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- <test-form [modal]="modal" ></test-form> -->
+  <!-- <button (click)="modal.dismiss()">Cancel</button>
+  <button (click)="submitModal()">Submit</button> -->
+
+</ng-template>

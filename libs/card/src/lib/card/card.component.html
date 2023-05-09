@@ -1,0 +1,14 @@
+<div class="card border border-black mt-5" style="width: 20rem;" *ngFor="let user of userDetails">
+  <div class="card-body">
+    <h5 class="card-title">Full Name:{{user.firstName}} {{user.lastName}}</h5>
+    <!-- <h6 class="card-subtitle mb-2 text-body-secondary">{{user.firstName}}</h6> -->
+    <p class="card-text">Email:{{user.email}}
+    </p>
+    <p class="card-text">Mobile:{{user.mobile}}
+    </p>
+    <!-- <a href="#" class="card-link" >Edit</a> -->
+    <!-- <test-modal-popup [title] = "title"></test-modal-popup> -->
+    <a href="#" class="card-link btn btn-primary" (click)="deleteUser(user.id)">Delete</a>
+    <a href="#" class="card-link btn btn-primary" (click)="editUser(user.id)">Edit</a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between">
+        <h1 class="text-center">User-List</h1>
+        <button class="btn btn-primary" (click)="addUser()">Add User</button>
+    </div>
+    <ng-container *ngIf="userDetails">
+        <test-card [userDetails]="userDetails" (passId)="getId($event[0],$event[1],$event[2])" ></test-card>
+    </ng-container>
+    <test-modal-popup (userDetails)="getUserDetailsFromAddForm($event)"></test-modal-popup>
+</div>
